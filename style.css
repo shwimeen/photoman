@@ -1,0 +1,365 @@
+/* =========================================
+   1. ОБЩИЕ НАСТРОЙКИ И ПЕРЕМЕННЫЕ
+   ========================================= */
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: #ffffff;
+    --accent-color: #f39c12; /* Золотистый/Оранжевый */
+    --card-bg: #1a1a1a;
+    --input-bg: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   2. НАВИГАЦИЯ (NAVBAR) - ФИНАЛЬНЫЙ ФИКС
+   ========================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 15px 0; /* Одинаковый отступ сверху и снизу */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between; /* Лого слева, ссылки справа */
+    align-items: center;
+    /* Контейнер уже имеет max-width и margin: 0 auto из общих настроек */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px; 
+    align-items: center;
+    transition: 0.5s ease; /* Для плавного появления на мобилках */
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Красивая кнопка "Связаться" */
+.nav-links .nav-btn {
+    background: var(--accent-color);
+    color: #000;
+    padding: 10px 22px;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.nav-links .nav-btn:hover {
+    background: #fff;
+    transform: translateY(-2px);
+}
+
+/* Кнопка "Связаться" должна выделяться (еще один вариант, можно объединить с верхним) */
+.nav-btn {
+    background: var(--accent-color) !important;
+    color: #000 !important;
+    padding: 10px 20px !important;
+    border-radius: 5px;
+    font-weight: 700 !important;
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: #fff !important;
+    transform: translateY(-2px);
+}
+
+.burger {
+    display: none; /* На ПК он скрыт */
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 3001;
+}
+
+.burger span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+/* =========================================
+   3. ГЛАВНЫЙ ЭКРАН (HERO)
+   ========================================= */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 { font-size: 4rem; margin-bottom: 20px; }
+.hero p { font-size: 1.2rem; color: #ccc; margin-bottom: 30px; }
+
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background: var(--accent-color);
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(243, 156, 18, 0.3);
+}
+
+/* =========================================
+   4. ПОРТФОЛИО (MASONRY)
+   ========================================= */
+.portfolio { padding: 100px 0; }
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--accent-color);
+    color: #000;
+    border-color: var(--accent-color);
+}
+
+.masonry-grid {
+    column-count: 3;
+    column-gap: 20px;
+}
+
+.grid-item {
+    margin-bottom: 20px;
+    break-inside: avoid;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.grid-item img {
+    width: 100%;
+    display: block;
+    transition: 0.5s;
+}
+
+.grid-item:hover img { transform: scale(1.05); }
+
+/* =========================================
+   5. ОБО МНЕ (ABOUT)
+   ========================================= */
+.about { padding: 100px 0; background: #0f0f0f; }
+.about-flex { display: flex; align-items: center; gap: 50px; }
+.about-image img { width: 100%; border-radius: 15px; }
+.stats { list-style: none; margin-top: 30px; display: flex; gap: 30px; }
+.stats strong { display: block; font-size: 1.5rem; color: var(--accent-color); }
+
+/* =========================================
+   6. ПРАЙС-ЛИСТ (ДВИГАЮЩИЙСЯ)
+   ========================================= */
+.pricing { padding: 100px 0; }
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.price-card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid #333;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+.price-card:hover {
+    transform: translateY(-15px);
+    border-color: var(--accent-color);
+    box-shadow: 0 15px 30px rgba(243, 156, 18, 0.2);
+}
+
+.price-card.featured { 
+    border-color: var(--accent-color); 
+    transform: scale(1.05); 
+    z-index: 2;
+}
+
+.price-card.featured:hover { transform: scale(1.05) translateY(-15px); }
+
+.badge {
+    position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+    background: var(--accent-color); color: #000; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+.price { font-size: 2.5rem; color: var(--accent-color); margin: 20px 0; font-weight: bold; }
+.features { list-style: none; text-align: left; margin-bottom: 30px; color: #aaa; }
+.features li { margin-bottom: 10px; }
+.features li::before { content: "✓ "; color: var(--accent-color); font-weight: bold; }
+
+/* =========================================
+   7. КОНТАКТЫ
+   ========================================= */
+.contact { padding: 100px 0; background: #080808; }
+.section-subtitle { text-align: center; color: #888; margin-top: -40px; margin-bottom: 60px; }
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contact-form .input-group { margin-bottom: 20px; }
+.contact-form input, .contact-form textarea {
+    width: 100%; padding: 15px; background: var(--input-bg); border: 1px solid #333; color: #fff; border-radius: 8px; font-family: inherit;
+}
+.contact-form input:focus { border-color: var(--accent-color); outline: none; }
+
+.contact-info { display: flex; flex-direction: column; gap: 20px; }
+.info-item { display: flex; gap: 15px; align-items: center; background: #151515; padding: 20px; border-radius: 12px; }
+.info-item i { color: var(--accent-color); font-size: 1.5rem; }
+
+.map-container { border-radius: 12px; overflow: hidden; margin-top: 20px; border: 1px solid #333; height: 250px; }
+.map-container iframe { width: 100%; height: 100%; }
+
+/* =========================================
+   8. ФУТЕР И ЛАЙТБОКС
+   ========================================= */
+.footer-mini { padding: 40px 0; border-top: 1px solid #222; text-align: center; }
+.footer-mini .container { display: flex; justify-content: space-between; align-items: center; }
+.footer-socials a { color: #fff; margin-left: 15px; font-size: 1.2rem; }
+
+.lightbox {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9);
+    display: none; justify-content: center; align-items: center; z-index: 2000;
+}
+.lightbox img { max-width: 90%; max-height: 80%; border: 3px solid #333; }
+.close-lightbox { position: absolute; top: 20px; right: 40px; font-size: 3rem; color: #fff; cursor: pointer; }
+
+/* =========================================
+   9. АДАПТИВНОСТЬ (МОБИЛЬНЫЕ УСТРОЙСТВА)
+   ========================================= */
+@media (max-width: 768px) {
+    .burger {
+        display: flex !important; /* На мобилках показываем СРАЗУ */
+    }
+    
+    .navbar {
+        padding: 15px 0;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        width: 70%;
+        background: #0f0f0f;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+        transition: 0.5s ease; /* Добавил transition для плавности */
+    }
+
+    .nav-links.active {
+        right: 0; /* Выезжаем! */
+    }
+
+    /* Анимация превращения бургера в крестик */
+    .burger.toggle span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .burger.toggle span:nth-child(2) {
+        opacity: 0;
+    }
+    .burger.toggle span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Остальные блоки */
+    .hero h1 { font-size: 2.5rem; }
+    .masonry-grid { column-count: 1; }
+    .about-flex { 
+        flex-direction: column; /* Исправлено: было grid-template-columns, но это flex контейнер */
+    }
+    .contact-wrapper { 
+        grid-template-columns: 1fr; 
+        gap: 30px; 
+    }
+    .price-card.featured { transform: scale(1); }
+    .footer-mini .container { flex-direction: column; gap: 20px; }
+}
