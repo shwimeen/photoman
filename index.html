@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRO Photographer Portfolio</title>
     
-    <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
+    
     
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -40,46 +40,58 @@
         </div>
     </header>
 
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Портфолио</h2>
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Примеры работ</h2>
+
+        <div class="masonry-grid" data-aos="fade-up">
+            <!-- Fashion (Мода) -->
+            <div class="grid-item"><img src="images/fashion-1.jpg" alt="Fashion фото 1"></div>
+            <div class="grid-item"><img src="images/fashion-2.jpg" alt="Fashion фото 2"></div>
+            <div class="grid-item"><img src="images/fashion-3.jpg" alt="Fashion фото 3"></div>
             
-            <div class="filters" data-aos="fade-up">
-                <button class="filter-btn active" data-filter="all">Все работы</button>
-                <button class="filter-btn" data-filter="portrait">Портреты</button>
-                <button class="filter-btn" data-filter="wedding">Свадьбы</button>
-                <button class="filter-btn" data-filter="fashion">Fashion</button>
-            </div>
-
-            <div class="masonry-grid" data-aos="fade-up">
-                <div class="grid-item portrait"><img src="https://picsum.photos/600/800?random=11" alt="Портрет 1"></div>
-                <div class="grid-item wedding"><img src="https://picsum.photos/600/400?random=12" alt="Свадьба 1"></div>
-                <div class="grid-item fashion"><img src="https://picsum.photos/600/700?random=13" alt="Мода 1"></div>
-                <div class="grid-item portrait"><img src="https://picsum.photos/600/600?random=14" alt="Портрет 2"></div>
-                <div class="grid-item wedding"><img src="https://picsum.photos/600/900?random=15" alt="Свадьба 2"></div>
-                <div class="grid-item fashion"><img src="https://picsum.photos/600/500?random=16" alt="Мода 2"></div>
-                <div class="grid-item portrait"><img src="https://picsum.photos/600/850?random=17" alt="Портрет 3"></div>
-                <div class="grid-item fashion"><img src="https://picsum.photos/600/450?random=18" alt="Мода 3"></div>
+            <!-- Portrait (Портреты) -->
+            <div class="grid-item"><img src="images/portrait-1.jpg" alt="Портрет 1"></div>
+            <div class="grid-item"><img src="images/portrait-2.jpg" alt="Портрет 2"></div>
+            <div class="grid-item"><img src="images/portrait-3.jpg" alt="Портрет 3"></div>
+            
+            <!-- Wedding (Свадьбы) -->
+            <div class="grid-item"><img src="images/wedding-1.jpg" alt="Свадьба 1"></div>
+            <div class="grid-item"><img src="images/wedding-2.jpg" alt="Свадьба 2"></div>
+             <div class="grid-item"><img src="images/wedding-3.jpg" alt="Свадьба 3"></div>
+        </div>
+    </div>
+</section>
+ 
+   <section id="about" class="about">
+    <div class="container about-flex">
+        <div class="about-image" data-aos="fade-right">
+            <div class="grid-item"><img src="images/aboutme.jpg" alt="обо мне"></div>
+            <a href="#contact" class="btn about-image-btn">Связаться со мной</a>
+        </div>
+        <div class="about-text" data-aos="fade-left">
+            <h2>Максим</h2>
+            <p class="about-subtitle">Профессиональный фотограф с 5-летним стажем</p>
+            <p>Привет! Меня зовут Максим. Я влюблен в фотографию и в то, как она может остановить самые важные моменты жизни. За 5 лет работы я провел немалое количество съемок и научился главному — фотография должна быть живой, искренней и настоящей.</p>
+            <p>Моя задача — не просто сделать красивое фото, а передать эмоции, атмосферу и историю. Каждый кадр — это маленькая жизнь, которую я помогаю сохранить навсегда.</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <strong>50+</strong>
+                    <span>Съемок</span>
+                </div>
+                <div class="stat-item">
+                    <strong>5 лет</strong>
+                    <span>Опыта</span>
+                </div>
+                <div class="stat-item">
+                    <strong>99,99%</strong>
+                    <span>Довольных клиентов</span>
+                </div>
             </div>
         </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container about-flex">
-            <div class="about-image" data-aos="fade-right">
-                <img src="https://picsum.photos/500/600?grayscale" alt="Фотограф">
-            </div>
-            <div class="about-text" data-aos="fade-left">
-                <h2>Обо мне</h2>
-                <p>Более 10 лет я занимаюсь коммерческой и художественной съемкой. Моя цель — запечатлеть не просто картинку, а эмоцию и атмосферу момента.</p>
-                <ul class="stats">
-                    <li><strong>500+</strong> Сессий</li>
-                    <li><strong>15</strong> Наград</li>
-                    <li><strong>100%</strong> Довольных клиентов</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
  
 
     <section id="pricing" class="pricing">
@@ -127,47 +139,39 @@
     </section>
 
     <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Свяжитесь со мной</h2>
-            <p class="section-subtitle" data-aos="fade-up">Давайте обсудим вашу идеальную фотосессию</p>
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Связаться со мной</h2>
+        <p class="section-subtitle" data-aos="fade-up">Подписывайся и пиши в соцсетях</p>
 
-            <div class="contact-wrapper">
-                <form class="contact-form" data-aos="fade-right">
-                    <div class="input-group">
-                        <input type="text" placeholder="Ваше имя" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="email" placeholder="Email или Telegram" required>
-                    </div>
-                    <div class="input-group">
-                        <textarea rows="5" placeholder="Ваше сообщение..."></textarea>
-                    </div>
-                    <button type="submit" class="btn submit-btn">Отправить заявку</button>
-                </form>
-
-                <div class="contact-info" data-aos="fade-left">
-                    <div class="info-item">
-                        <i class="fab fa-telegram"></i>
-                        <div>
-                            <h4>Telegram</h4>
-                            <p>@photoman_studio</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>hello@photoman.by</p>
-                        </div>
-                    </div>
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.630163351334!2d27.5589!3d53.9006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTPCsDU0JzAyLjIiTiAyN8KwMzMnMzIuMCJF!5e0!3m2!1sru!2sby!4v1625145000000!5m2!1sru!2sby" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
+        <div class="social-links-wrapper" data-aos="fade-up">
+            <a href="https://t.me/maskimj" class="social-card telegram" target="_blank">
+                <div class="social-icon">
+                    <i class="fab fa-telegram"></i>
                 </div>
-            </div>
-        </div>
-    </section>
+                <div class="social-info">
+                    <h3>Telegram</h3>
+                    <p>@maskimj</p>
+                </div>
+                <div class="social-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
 
+            <a href="https://www.instagram.com/maskim_photo?igsh=MWR4d2UydDM1ZXZldg==" class="social-card instagram" target="_blank">
+                <div class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="social-info">
+                    <h3>Instagram</h3>
+                    <p>@maskim_photo</p>
+                </div>
+                <div class="social-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
     <footer class="footer-mini">
         <div class="container">
             <p>&copy; 2026 PHOTO MAN. Все права защищены.</p>
